@@ -29,23 +29,23 @@ These are almost certainly not useful unless you are using a different base imag
 
 With ElasticSearch running on `192.168.1.10` and port `9500`:
 
-    # docker run -d -p 8888:8888 -p 24224:24224 -e ELASTICSEARCH_HOST="192.168.1.10" -e ELASTICSEARCH_PORT="9500" openfirmware/fluentd-elasticsearch
+    # docker run -d -p 8888:8888 -p 24224:24224 -e ES_HOST="192.168.1.10" -e ES_PORT="9500" openfirmware/fluentd-elasticsearch
 
 Enviroment Variables you can customize:
 
-### ELASTICSEARCH_HOST
+### ES_HOST
 
 Host IP or address for ElasticSearch. Multiple hosts are not supported in this Dockerfile currently. Defaults to `$ELASTICSEARCH_PORT_9200_TCP_ADDR` then `localhost`.
 
-### ELASTICSEARCH_PORT
+### ES_PORT
 
 Host port for ElasticSearch. Defaults to `$ELASTICSEARCH_PORT_9200_TCP_PORT` then `9200`.
 
-### ELASTICSEARCH_INDEX
+### ES_INDEX
 
 Index name for ElasticSearch. Defaults to `fluentd`.
 
-### ELASTICSEARCH_TYPE
+### ES_TYPE
 
 Type name for ElasticSearch. Defaults to `fluentd`.
 
