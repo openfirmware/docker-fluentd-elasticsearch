@@ -35,11 +35,11 @@ Enviroment Variables you can customize:
 
 ### ELASTICSEARCH_HOST
 
-Host IP or address for ElasticSearch. Multiple hosts are not supported in this Dockerfile currently. Defaults to `localhost`.
+Host IP or address for ElasticSearch. Multiple hosts are not supported in this Dockerfile currently. Defaults to `$ELASTICSEARCH_PORT_9200_TCP_ADDR` then `localhost`.
 
 ### ELASTICSEARCH_PORT
 
-Host port for ElasticSearch. Defaults to `9200`.
+Host port for ElasticSearch. Defaults to `$ELASTICSEARCH_PORT_9200_TCP_PORT` then `9200`.
 
 ### ELASTICSEARCH_INDEX
 
@@ -49,9 +49,17 @@ Index name for ElasticSearch. Defaults to `fluentd`.
 
 Type name for ElasticSearch. Defaults to `fluentd`.
 
-## Running fluentd with a local named docker container running Elastic Search
+## Running fluentd with a local container running Elastic Search
 
-(WIP)
+Docker supports linking named containers together, allowing IPs and ports to be automatically configured from random values. Let's assume ElasticSearch is running in another docker container:
+
+    # docker run -d --name=elasticsearch dockerfile/elasticsearch
+
+That container has the name `elasticsearch` and has the ports 9200 and 9300 exposed but not bound. We can link it to `fluentd-elasticsearch`:
+
+    # docker run -d -p 8888:8888 -p 24224:24224 --link elasticsearch:elasticsearch openfirmware/fluentd-elasticsearch
+
+This will feed the IP and port from the `elasticsearch` container as default values instead of `localhost` and `9200`.
 
 ## Credits
 
