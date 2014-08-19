@@ -14,7 +14,8 @@ ADD run.sh /run.sh
 ADD setup_plugin.sh /setup_plugin.sh
 RUN chmod 755 /*.sh
 
-EXPOSE 24224 8888
+EXPOSE 24224
+EXPOSE 8888
 
 ENTRYPOINT ["/run.sh"]
 CMD ["-v"]
