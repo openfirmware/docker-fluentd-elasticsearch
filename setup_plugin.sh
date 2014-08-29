@@ -20,6 +20,7 @@ echo "
 	port $ES_PORT
 	index_name $ES_INDEX
 	type_name $ES_TYPE
+  include_tag_key true
 </match>" >> /etc/td-agent/td-agent.conf
 
 touch /.plugin_setup
