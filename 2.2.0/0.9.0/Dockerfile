@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get install -y -q libcurl4-openssl-dev make
 
-RUN /usr/lib/fluent/ruby/bin/fluent-gem install fluent-plugin-elasticsearch -v 0.9.0
+RUN /opt/td-agent/embedded/bin/fluent-gem install fluent-plugin-elasticsearch -v 0.9.0
 
 ADD run.sh /run.sh
 ADD setup_plugin.sh /setup_plugin.sh
