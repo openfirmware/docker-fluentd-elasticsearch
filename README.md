@@ -2,9 +2,15 @@
 
 Base docker image to run fluentd, with the ElasticSearch plugin.
 
+The `latest` tag will use the latest version of `openfirmware/fluentd` and the latest version of fluentd-elasticsearch.
+
+The `2.2.0` tag will lock fluentd td-agent to v2.2.0, and fluentd-elasticsearch to the latest version.
+
+The `2.2.0-0.9.0` tag will lock fluentd td-agent to v2.2.0, and fluentd-elasticsearch to version 0.9.0.
+
 ## Building a tagged release from Github
 
-As an alternative to the [Docker Index](https://index.docker.io/), an image can be created from my Github repository:
+As an alternative to the [Docker Registry](https://registry.hub.docker.com/), an image can be created from my Github repository:
 
     # docker build -t openfirmware/fluentd-elasticsearch github.com/openfirmware/docker-fluentd-elasticsearch.git
 
@@ -64,4 +70,3 @@ This will feed the IP and port from the `elasticsearch` container as default val
 ## Credits
 
 * [Original docker-fluentd repository](https://github.com/jplock/docker-fluentd) created by jplock
-

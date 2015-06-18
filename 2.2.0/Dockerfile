@@ -1,7 +1,7 @@
 # DOCKER-VERSION 1.6.2
 # VERSION        0.2
 
-FROM openfirmware/fluentd
+FROM openfirmware/fluentd:2.2.0
 MAINTAINER James Badger <james@jamesbadger.ca>
 
 ENV DEBIAN_FRONTEND noninteractive
