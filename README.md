@@ -31,13 +31,13 @@ By default, the plugin will assume these details for ElasticSearch:
 
 These are almost certainly not useful unless you are using a different base image that includes ElasticSearch. Instead, customize the settings using environment variables as explained in the following sections.
 
-## Running fleuntd with a remote Elastic Search host
+## Running fluentd with a remote ElasticSearch host
 
 With ElasticSearch running on `192.168.1.10` and port `9500`:
 
     # docker run -d -p 8888:8888 -p 24224:24224 -e ES_HOST="192.168.1.10" -e ES_PORT="9500" openfirmware/fluentd-elasticsearch
 
-Enviroment Variables you can customize:
+Environment Variables you can customize:
 
 ### ES_HOST
 
@@ -55,7 +55,7 @@ Index name for ElasticSearch. Defaults to `fluentd`.
 
 Type name for ElasticSearch. Defaults to `fluentd`.
 
-## Running fluentd with a local container running Elastic Search
+## Running fluentd with a local container running ElasticSearch
 
 Docker supports linking named containers together, allowing IPs and ports to be automatically configured from random values. Let's assume ElasticSearch is running in another docker container:
 
